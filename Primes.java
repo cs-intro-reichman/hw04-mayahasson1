@@ -17,7 +17,7 @@ public class Primes {
 
         }
     }
-    int prec=(int)(((double)count/newP.length)*100);
+    int prec = (int)(((double)count/(newP.length - 1)) * 100);
     System.out.println("There are "+count+" primes between 2 and "+(newP.length-1)+" ("+prec+"% are primes)");
     }
     public static boolean[] newAr(int num)
