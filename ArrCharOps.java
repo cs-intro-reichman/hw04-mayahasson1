@@ -187,49 +187,32 @@ public class ArrCharOps {
      *         lexicographically greater than str2.
      *         return -2 if there is an error with the input.
      */
-    public static int compareTo(String str1, String str2) {
-        if (str1==null||str2==null)
-        {
-            return -2;
-        }
-        str1=lowerCase(str1);
-        str2=lowerCase(str2);
-        int minL=Math.min(str1.length(),str2.length());
-        for(int i=0;i<minL;i++)
-        {
-            if(str1.charAt(i)>str2.charAt(i))
-            {
-                return 1;
-            }
-            if(str1.charAt(i)<str2.charAt(i))
-            {
-                return -1;
-            }
-        }
-        if(str1.length()>str2.length())
-        {
-            return 1;
-        }
-         if(str1.length()<str2.length())
+public static int compareTo(String str1, String str2) {
+    if (str1 == null || str2 == null)
+    {
+        return -2;
+    }
+    int minLength=Math.min(str1.length(),str2.length());
+    for (int i=0;i<minLength;i++) {
+        char c1=str1.charAt(i);
+        char c2=str2.charAt(i);
+        if (c1<c2)
         {
             return -1;
-        }   
-    return 0;
-    }
-    public static String lowerCase(String str) 
-    {
-    char[] chars=new char[str.length()];
-    for (int i=0;i<str.length();i++) {
-        char c=str.charAt(i);
-        if (c>= 'A' && c <= 'Z')
-        {
-            chars[i]=(char)(c+32);
         } 
-        else
+        if (c1>c2)
         {
-            chars[i]=c;
-        }
+            return 1;
+        } 
     }
-    return new String(chars);
+    if(str1.length()<str2.length()) 
+    {
+        return -1;
+    }
+    if(str1.length()>str2.length()) 
+    {
+        return 1;
+    }
+    return 0;
 }
 }
