@@ -187,21 +187,6 @@ public class ArrCharOps {
      *         lexicographically greater than str2.
      *         return -2 if there is an error with the input.
      */
-    public static String lowerCase(String str) {
-        String newS="";
-        for(int i=0;i<str.length();i++)
-        {
-            if(str.charAt(i)>= 'A'&&str.charAt(i)<='Z')
-            {
-                newS+=(char)(str.charAt(i)+32);
-            }
-            else
-            {
-                newS+=str.charAt(i);
-            }
-        }
-        return newS;
-    }
     public static int compareTo(String str1, String str2) {
         if (str1==null||str2==null)
         {
@@ -231,4 +216,20 @@ public class ArrCharOps {
         }   
     return 0;
     }
+    public static String lowerCase(String str) 
+    {
+    char[] chars=new char[str.length()];
+    for (int i=0;i<str.length();i++) {
+        char c=str.charAt(i);
+        if (c>= 'A' && c <= 'Z')
+        {
+            chars[i]=(char)(c+32);
+        } 
+        else
+        {
+            chars[i]=c;
+        }
+    }
+    return new String(chars);
+}
 }
